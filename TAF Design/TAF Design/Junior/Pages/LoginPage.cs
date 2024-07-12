@@ -1,19 +1,11 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
 namespace Junior.Pages
 {
-    public class LoginPage
+    public class LoginPage : BasePage
     {
-        private readonly IWebDriver driver;
-        private readonly WebDriverWait wait;
-
-        public LoginPage(IWebDriver driver)
-        {
-            this.driver = driver;
-            wait = new WebDriverWait(this.driver, TimeSpan.FromSeconds(5));
-        }
+        public LoginPage(IWebDriver driver) : base(driver) { }
 
         public IWebElement UserNameField => wait.Until(ExpectedConditions.ElementExists(By.XPath("//input[@name='username']")));
         public IWebElement PasswordField => wait.Until(ExpectedConditions.ElementExists(By.XPath("//input[@name='password']")));

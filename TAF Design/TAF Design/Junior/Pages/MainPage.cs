@@ -2,14 +2,9 @@
 
 namespace Junior.Pages
 {
-    public class MainPage
+    public class MainPage : BasePage
     {
-        private readonly IWebDriver driver;
-
-        public MainPage(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        public MainPage(IWebDriver driver) : base (driver) {}
 
         public IWebElement HeaderUserIcon => driver.FindElement(By.XPath("//header//img[@alt='profile picture']"));
 
