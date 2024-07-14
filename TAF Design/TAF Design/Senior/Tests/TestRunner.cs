@@ -1,16 +1,12 @@
-﻿using AventStack.ExtentReports;
-using AventStack.ExtentReports.Reporter;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
-using NUnit.Framework.Interfaces;
-using OpenQA.Selenium;
 using Senior.Config.Core;
 using Senior.Tests.Utils;
-using System.Reflection;
 
 namespace Senior.Tests
 {
     [TestFixture]
+    [Parallelizable(ParallelScope.All)]
     public class TestRunner : TestBase
     {
         [SetUp]
@@ -32,8 +28,8 @@ namespace Senior.Tests
 
             DriverHolder.Driver.Manage().Window.Maximize();
             DriverHolder.Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
-
         }
+
         [TearDown]
         public void CloseBrowser()
         {
